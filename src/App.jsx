@@ -1,35 +1,31 @@
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Account from "./pages/Account";
+import Bookings from "./pages/Bookings";
+import Cabins from "./pages/Cabins";
+import Login from "./pages/Login";
+import Settings from "./pages/Settings";
+import Users from "./pages/Users";
+import PageNotFound from "./pages/PageNotFound";
 import GlobalStyles from "./styles/GlobalStyles";
-import Button from "./ui/Button";
-import Heading from "./ui/Heading";
-import Row from "./ui/Row";
 
 export default function App() {
   return (
     <>
       <GlobalStyles />
-      <div>
-        <Row type='horizontal'>
-          <div>Elem 1</div>
-          <div>Elem 2</div>
-        </Row>
-        <Row>
-          <div>Elem 1</div>
-          <div>Elem 2</div>
-        </Row>
-
-        <Heading as='h1'>App</Heading>
-        <Heading as='h2'>App</Heading>
-        <Heading as='h3'>App</Heading>
-        <Button variation='primary' size='small'>Cheack in</Button>
-        <Button variation='secondary' size='small'>Cheack in</Button>
-        <Button variation='danger' size='small'>Cheack in</Button>
-        <Button>Cheack in</Button>
-        <Button variation='secondary' size='medium'>Cheack in</Button>
-        <Button variation='danger' size='medium'>Cheack in</Button>
-        <Button variation='primary' size='large'>Cheack in</Button>
-        <Button variation='secondary' size='large'>Cheack in</Button>
-        <Button variation='danger' size='large'>Cheack in</Button>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Navigate to="/dashboard" replace />} />
+          <Route path='dashboard' element={<Dashboard />}/>
+          <Route path='bookings' element={<Bookings />}/>
+          <Route path='cabins' element={<Cabins />}/>
+          <Route path='users' element={<Users />}/>
+          <Route path='settings' element={<Settings />}/>
+          <Route path='account' element={<Account />}/>
+          <Route path='login' element={<Login />}/>
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
