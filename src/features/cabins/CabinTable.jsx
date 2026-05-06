@@ -11,6 +11,7 @@ export default function CabinTable() {
 
   if(isLoading) return <Spinner />;
 
+  // Filter
   const filterValue = searchParams.get('discount') || 'all';
 
   const filters = {
@@ -20,6 +21,12 @@ export default function CabinTable() {
   };
 
   const filteredCabins = filters[filterValue];
+
+  // Sort
+  const sortBy = searchParams.get('sortBy') || 'created_at-asc';
+  const [field, direction] = sortBy.split('-');
+  const sortedCabins = filteredCabins.toSorted((a, b) => a[field] - b[field]);
+  if (direction === 'desc') sortedCabins.reverse();
 
   return (
     <Menus>
@@ -34,7 +41,7 @@ export default function CabinTable() {
         </Table.Header>
 
         <Table.Body 
-          data={filteredCabins} 
+          data={sortedCabins} 
           render={cabin => <CabinRow cabin={cabin} key={cabin.id} />} 
         />
       </Table>
