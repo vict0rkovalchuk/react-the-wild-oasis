@@ -4,6 +4,7 @@ import Spinner from "../../ui/Spinner";
 import Table from "../../ui/Table";
 import CabinRow from "./CabinRow";
 import { useCabins } from "./useCabins";
+import Empty from "../../ui/Empty";
 
 export default function CabinTable() {
   const { isLoading, cabins, error } = useCabins();
@@ -27,6 +28,8 @@ export default function CabinTable() {
   const [field, direction] = sortBy.split('-');
   const sortedCabins = filteredCabins.toSorted((a, b) => a[field] - b[field]);
   if (direction === 'desc') sortedCabins.reverse();
+
+  if(!sortedCabins.length) return <Empty resourceName='cabins'/>;
 
   return (
     <Menus>
