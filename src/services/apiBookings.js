@@ -6,7 +6,9 @@ export async function getBookings({ filter, sortBy }) {
     .from('bookings')
     .select('id, created_at, startDate, endDate, numNights, numGuests, status, totalPrice, cabins(name), guests(fullName, email)');
 
-  if(filter !== null) query[filter.method || 'eq'](filter.field, filter.value);
+  if(filter) query[filter.method || 'eq'](filter.field, filter.value);
+
+  if(sortBy) query.order(sortBy.field, { ascending: sortBy.direction === 'asc' });
 
   const { data, error } = await query;
 

@@ -22,7 +22,7 @@ export default function CabinTableOperations() {
         { value: 'maxCapacity-asc', label: 'Sort by capacity (low first)' },
         { value: 'maxCapacity-desc', label: 'Sort by capacity (high first)' },
         { value: 'discount-asc', label: 'Sort by discount (low first)' },
-        { value: 'discount-desc', label: 'Sort by discount (high first)' },
+        { value: 'discount-desc', label: 'Sort by discount (high first)' }
       ]}/>
     </TableOperations>
   )
