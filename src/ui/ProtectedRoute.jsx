@@ -15,13 +15,13 @@ const FullPage = styled.div`
 export default function ProtectedRoute({ children }) {
   const navigate = useNavigate();
 
-  const { isLoading, user, isAuthenticated, fetchStatus } = useUser();
+  const { isLoading, user, isAuthenticated } = useUser();
 
   useEffect(function () {
-    if(!isAuthenticated && !isLoading && fetchStatus !== 'fetching') {
+    if(!isAuthenticated && !isLoading) {
       navigate('/login');
     }
-  }, [isAuthenticated, isLoading, fetchStatus, navigate]);
+  }, [isAuthenticated, isLoading, navigate]);
 
   if(isLoading) return (
     <FullPage>
