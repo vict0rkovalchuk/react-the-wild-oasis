@@ -10,7 +10,7 @@ import { useUpdateCabin } from "./useUpdateCabin";
 
 function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
   const { isCreating, createCabin } = useCreateCabin();
-  const { isUpdating, editCabin } = useUpdateCabin();
+  const { isUpdating, updateCabin } = useUpdateCabin();
 
   const isWorking = isCreating || isUpdating;
   
@@ -25,7 +25,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
     const image = typeof data.image === 'string' ? data.image : data.image[0];
 
     if(isEditSession) {
-      editCabin({ newCabinData: { ...data, image }, id: editId }, {
+      updateCabin({ newCabinData: { ...data, image }, id: editId }, {
         onSuccess: () => {
           reset();
           onCloseModal?.();
