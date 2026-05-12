@@ -26,12 +26,14 @@ function UpdateUserDataForm() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if(fullName) updateUser({ fullName, avatar }, {
-      onSuccess: () => {
-        setAvatar(null);
-        e.target.reset();
-      }
-    });
+    if(fullName) {
+      updateUser({ fullName, avatar }, {
+        onSuccess: () => {
+          setAvatar(null);
+          e.target.reset();
+        }
+      });
+    }
   }
 
   function handleCancel() {
