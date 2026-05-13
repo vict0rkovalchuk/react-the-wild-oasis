@@ -977,7 +977,7 @@ to {
 `,Gge=G.img`
   height: 9.6rem;
   width: auto;
-`;function pM(){const{isDarkMode:e}=zv(),t=e?"/logo-dark.png":"/logo-light.png";return S.jsx(Kge,{children:S.jsx(Gge,{src:t,alt:"Logo"})})}const Yge=G.main`
+`;function pM(){const{isDarkMode:e}=zv(),t=e?"/react-the-wild-oasis/logo-dark.png":"/react-the-wild-oasis/logo-light.png";return S.jsx(Kge,{children:S.jsx(Gge,{src:t,alt:"Logo"})})}const Yge=G.main`
   min-height: 100vh;
   display: grid;
   grid-template-columns: 48rem;
@@ -1040,7 +1040,7 @@ to {
   object-position: center;
   border-radius: 50%;
   outline: 2px solid var(--color-grey-100);
-`;function vye(){const{user:{user_metadata:{avatar:e,fullName:t}}}=V1();return S.jsxs(hye,{children:[S.jsx(pye,{src:e||"default-user.jpg",alt:`Avatar of ${t}`}),S.jsx("span",{children:t})]})}const gye=G.header`
+`;function vye(){const{user:{user_metadata:{avatar:e,fullName:t}}}=V1();return S.jsxs(hye,{children:[S.jsx(pye,{src:e||"/react-the-wild-oasis/default-user.jpg",alt:`Avatar of ${t}`}),S.jsx("span",{children:t})]})}const gye=G.header`
   background-color: var(--color-grey-0);
   padding: 1.2rem 4.8rem;
   border-bottom: 1px solid var(--color-grey-100);
