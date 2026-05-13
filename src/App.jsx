@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import Dashboard from "./pages/Dashboard";
@@ -56,7 +56,7 @@ export default function App() {
         />
         
         <GlobalStyles />
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route 
               element={
@@ -79,7 +79,7 @@ export default function App() {
             <Route path='login' element={<Login />}/>
             <Route path="*" element={<PageNotFound />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </QueryClientProvider>
     </DarkModeProvider>
   );
